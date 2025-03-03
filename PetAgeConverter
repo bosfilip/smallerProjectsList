@@ -1,0 +1,37 @@
+#This project converts human years into dog and cat years
+
+def cat(human_years):
+    catY = 0
+    catY = int(catY)
+
+    if human_years == 1:
+        catY += 15
+    elif human_years == 2:
+        catY += 24
+    elif human_years >= 3:
+        catY = 24 + (4 * (human_years - 2))
+
+    return catY
+
+def dog(human_years):
+    dogY = 0
+    dogY = int(dogY)
+
+    if human_years == 1:
+        dogY += 15
+    elif human_years == 2:
+        dogY += 24
+    elif human_years >= 3:
+        dogY = 24 + (5 * (human_years - 2))
+
+    return dogY
+
+
+def human_years_cat_years_dog_years():
+    human_years = input("Enter amount of human years to convert")
+    human_years = int(human_years)
+    catY = cat(human_years)
+    dogY = dog(human_years)
+    print(f"human years = {human_years}\ncat years = {catY}\ndog years = {dogY}")
+
+human_years_cat_years_dog_years()
