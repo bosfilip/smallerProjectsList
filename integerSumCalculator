@@ -1,0 +1,24 @@
+def get_sum(a,b):
+    if a == b:
+        return a
+    newList = []
+    if a < b:
+        for int in range(a,b+1):
+            newList.append(int)
+    elif a > b:
+        for int in range(b,a+1):
+            newList.append(int)
+    return sum(newList)
+
+def master():
+    nums = input("Enter two integers separated by a space")
+    try:
+        numbers = nums.split()
+        a = int(numbers[0])
+        b = int(numbers[1])
+        result = get_sum(a,b)
+        print(f"The sum between yor numbers within them is: {result}")
+    except:
+        print("Invalid input. Please enter two integers separated by a space ")
+
+master()
