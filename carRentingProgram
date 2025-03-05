@@ -1,0 +1,24 @@
+#car renting program where after 7 days of rent customer gets $50 discount and after 3 days of rental $20 discount
+
+def rental_car_cost(rent):
+    cost = rent * 40
+    if rent >= 7:
+        cost -= 50
+    elif rent >= 3 and rent < 7:
+        cost -= 20
+
+    return cost
+
+def master():
+    running = True
+    while running:
+        rent = input("Enter for how much days you want to rent car to calculate discounts")
+        try:
+            rent = int(rent)             #at this point try ia used to check if rent is integer if its not than except is being triggerd
+            cost = rental_car_cost(rent)
+            print(f"Your total: {cost}")
+            running = False
+        except:
+            print("Invalid input")
+
+master()
