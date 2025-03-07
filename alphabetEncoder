@@ -1,0 +1,46 @@
+#this program turns each letter in given string to its position in alphabet as numeric value
+
+def alphabet_position(text):
+    alph = {
+        "a" : 1,
+        "b" : 2,
+        "c" : 3,
+        "d" : 4,
+        "e" : 5,
+        "f" : 6,
+        "g" : 7,
+        "h" : 8,
+        "i" : 9,
+        "j" : 10,
+        "k" : 11,
+        "l" : 12,
+        "m" : 13,
+        "n" : 14,
+        "o" : 15,
+        "p" : 16,
+        "q" : 17,
+        "r" : 18,
+        "s" : 19,
+        "t" : 20,
+        "u" : 21,
+        "v" : 22,
+        "w" : 23,
+        "x" : 24,
+        "y" : 25,
+        "z" : 26
+        }
+    words = text.lower().split()
+    result = []
+    for word in words:
+        for letter in word:
+            if letter in alph:
+                value = alph[letter]
+                result.append(str(value))
+                " ".join(result)
+    return " ".join(result)
+
+def master():
+    text = input("Type something to check what is position in alphabet for each letter in your sentence: ")
+    print(alphabet_position(text))
+
+master()
