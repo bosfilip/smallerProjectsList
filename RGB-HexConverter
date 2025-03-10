@@ -1,0 +1,84 @@
+def change(r,g,b):
+
+    a = round(r / 16)
+    bb = r - (a*16)
+
+    if r <= 0:
+        a, bb = 0, 0
+    elif r >= 255:
+        a, bb= "F", "F"
+
+    if a == 10:
+        a = "A"
+    elif a == 11:
+        a = "B"
+    elif a == 12:
+        a = "C"
+    elif a == 13:
+        a = "D"
+    elif a == 14:
+        a = "E"
+    elif a == 15:
+        a = "F"
+
+    c = round(g / 16)
+    d = g - (c * 16)
+
+    if g <= 0:
+        c, d = 0, 0
+    elif g >= 255:
+        c, d= "F", "F"
+
+    if c == 10:
+        c = "A"
+    elif c == 11:
+        c = "B"
+    elif c == 12:
+        c = "C"
+    elif c == 13:
+        c = "D"
+    elif c == 14:
+        c = "E"
+    elif c == 15:
+        c = "F"
+
+    e = round(b / 16)
+    f = b - (e * 16)
+
+    if b <= 0:
+        e, f = 0, 0
+    elif b >= 255:
+        e, f="F", "F"
+
+    if e == 10:
+        e = "A"
+    elif e == 11:
+        e = "B"
+    elif e == 12:
+        e = "C"
+    elif e == 13:
+        e = "D"
+    elif e == 14:
+        e = "E"
+    elif e == 15:
+        e = "F"
+
+    return "".join(map(str, [a,bb,c,d,e,f]))
+
+
+def master():
+    rgb = input("Enter rgb value that u want to convert( ex. 255,44,2 ): ")
+    running = True
+    while running:
+        try:
+            rgb = rgb.split(",")
+            r = int(rgb[0].strip())
+            g = int(rgb[1].strip())
+            b = int(rgb[2].strip())
+            print(f"Your rgb: {r},{g},{b}\nConverted to HEX: {change(r,g,b)}")
+            running = False
+        except:
+            print("Incorrect input")
+
+
+master()
