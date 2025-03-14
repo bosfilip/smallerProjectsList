@@ -1,0 +1,25 @@
+def tower_builder(n_floors):
+    n=-1
+    w=0
+    max_width = (n_floors * 2) -1
+    for floor in range(1,n_floors + 1):
+        n += 2
+        stars = n * "*"
+        spaces = " " * ((max_width - len(stars))//2)
+
+        print(spaces, stars)
+
+def master():
+    n_floors = int(input("Enter the number of floors you want you pyramid to have"))
+
+    if n_floors <= 0:
+        print("your input must be more than 0")
+    elif n_floors > 100:
+        print("This tower is to high!!")
+    else:
+        try:
+            n_floors = int(n_floors)
+            tower_builder(n_floors)
+        except:
+            print("Incorrect input")
+master()
