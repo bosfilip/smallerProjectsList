@@ -1,0 +1,29 @@
+def generate_hashtag(s):
+    if len(s.strip()) == 0:
+        return False
+    else:
+        list = s.split(" ")
+        sol = []
+        for word in list:
+            if word:
+                sol.append(word[0].upper()+word[1:].lower()) # You can also use title() but I feel like thats fun way to do this way
+        result = "#" + "".join(sol)
+        if len(result) > 140:
+            return False
+        else:
+            return result
+
+def master():
+    s = input("Enter string you want to turn to hashtag: ")
+    if s.isdigit():
+        print("Input cant contain numbers")
+    else:
+        try:
+            if generate_hashtag(s):          #In this part I used just if "myFunction" to check if it's set to true, if yes than it prints the function
+                print(generate_hashtag(s)) 
+            else:
+                print("Invalid input")
+        except:
+            ("Invalid input")
+
+master()
