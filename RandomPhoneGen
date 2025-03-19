@@ -1,0 +1,51 @@
+import random
+
+def create_phone_number(numbers):
+    random.shuffle(numbers)
+
+    intsNums = []
+    for n in numbers:
+        intsNums.append(int(n))
+
+    missingNums = 9 - len(intsNums)
+    someNums = [1,2,3,4,5,6,7,8,9,0]
+    list = []
+    for i in range(0,missingNums):
+        r = random.choice(someNums)
+        list.append(r)
+
+    fullList = intsNums + list
+    random.shuffle(fullList)
+
+    strNums = [str(nums) for nums in fullList] #I tried different way of creating lists here
+
+    result = (
+        "".join(strNums[:3])
+        + "-"
+        + "".join(strNums[3:6])
+        + "-"
+        + "".join(strNums[6:])
+    )
+    print(f"Your new phone number: {result}")
+
+def master():
+    n = input("Enter a numbers u want to have in your phone number (0-9 using ',' between): ")
+    numbers = n.split(",")
+    intNums = []
+    for number in numbers:
+        try:
+            number = int(number)
+            if number > 9 or number < 0:
+                print("Invalid input, number must be bigger than 0(within) and smaller than 9(within)")
+                return
+            intNums.append(number)
+        except:
+            print("Invalid input")
+            return
+    if len(intNums) > 9:
+        print("Invalid input, you can input max 9 numbers")
+        return
+
+    create_phone_number(numbers)
+
+master()
