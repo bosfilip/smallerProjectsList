@@ -1,0 +1,21 @@
+def pig_it(text):
+    words = text.split(" ")
+    result = []
+    for word in words:
+        if word.isalpha():
+            firstL = word[0]
+            full = word + firstL + "ay"
+            end = full[1:]
+            result.append(end)
+        else:
+            result.append(word)
+    return " ".join(result)
+
+def master():
+    text = input("Enter text u want to edit: ")
+    if text.strip() == "":
+        print("input cant be empty")
+    else:
+        pig_it(text)
+
+master()
