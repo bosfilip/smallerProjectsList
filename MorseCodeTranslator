@@ -1,0 +1,157 @@
+def code_morse(chars):
+    morse_code = chars.strip()
+    morse_code_dict = {
+        'A': '.-',
+        'B': '-...',
+        'C': '-.-.',
+        'D': '-..',
+        'E': '.',
+        'F': '..-.',
+        'G': '--.',
+        'H': '....',
+        'I': '..',
+        'J': '.---',
+        'K': '-.-',
+        'L': '.-..',
+        'M': '--',
+        'N': '-.',
+        'O': '---',
+        'P': '.--.',
+        'Q': '--.-',
+        'R': '.-.',
+        'S': '...',
+        'T': '-',
+        'U': '..-',
+        'V': '...-',
+        'W': '.--',
+        'X': '-..-',
+        'Y': '-.--',
+        'Z': '--..',
+        '1': '.----',
+        '2': '..---',
+        '3': '...--',
+        '4': '....-',
+        '5': '.....',
+        '6': '-....',
+        '7': '--...',
+        '8': '---..',
+        '9': '----.',
+        '0': '-----',
+        '.': '.-.-.-',
+        ',': '--..--',
+        '?': '..--..',
+        "'": '.----.',
+        '!': '-.-.--',
+        '/': '-..-.',
+        '(': '-.--.',
+        ')': '-.--.-',
+        '&': '.-...',
+        ':': '---...',
+        ';': '-.-.-.',
+        '=': '-...-',
+        '+': '.-.-.',
+        '-': '-....-',
+        '_': '..--.-',
+        '"': '.-..-.',
+        '$': '...-..-',
+        '@': '.--.-.'
+    }
+    result = []
+    for char in chars:
+        if char in morse_code_dict:
+            result.append(morse_code_dict[char])
+        elif char == " ":
+            result.append(" ")
+        else:
+            print("Invalid character")
+    print(" ".join(result))
+
+def decode_morse(morse):
+    morse = morse.strip()
+    morseList = morse.split()
+    morse_code_dict = {
+        '.-': 'A',
+        '-...': 'B',
+        '-.-.': 'C',
+        '-..': 'D',
+        '.': 'E',
+        '..-.': 'F',
+        '--.': 'G',
+        '....': 'H',
+        '..': 'I',
+        '.---': 'J',
+        '-.-': 'K',
+        '.-..': 'L',
+        '--': 'M',
+        '-.': 'T',
+        '---': 'O',
+        '.--.': 'P',
+        '--.-': 'Q',
+        '.-.': 'R',
+        '...': 'S',
+        '-': 'T',
+        '..-': 'U',
+        '...-': 'V',
+        '.--': 'W',
+        '-..-': 'X',
+        '-.--': 'Y',
+        '--..': 'Z',
+        '.----': '1',
+        '..---': '2',
+        '...--': '3',
+        '....-': '4',
+        '.....': '5',
+        '-....': '6',
+        '--...': '7',
+        '---..': '8',
+        '----.': '9',
+        '-----': '0',
+        '.-.-.-': '.',
+        '--..--': ',',
+        '..--..': '?',
+        '.----.': "'",
+        '-.-.--': '!',
+        '-..-.': '/',
+        '-.--.': '(',
+        '-.--.-': ')',
+        '.-...': '&',
+        '---...': ':',
+        '-.-.-.': ';',
+        '-...-': '=',
+        '.-.-.': '+',
+        '-....-': '-',
+        '..--.-': '_',
+        '.-..-.': '"',
+        '...-..-': '$',
+        '.--.-.': '@'
+    }
+    result = []
+    for code in morseList:
+        if code in morse_code_dict:
+            result.append(morse_code_dict[code])
+        elif code == " ":
+            result.append(" ")
+        else:
+            print("Invalid character")
+    print(" ".join(result))
+
+def master():
+    wtd = input("For turning sentense in to morse type: 'toMorse' if u want to uncode morse to sentense type: 'toChars': ")
+    try:
+        if wtd.lower() == 'tomorse':
+            chars = input("Enter sentense you want to turn to morse: ")
+            chars = chars.upper()
+            code_morse(chars)
+        elif wtd.lower() == 'tochars':
+            morse = input("Enter morse code u want to turn in to sentense: ")
+            decode_morse(morse)
+        else:
+            print("Invalid input for converting toMorse or toChars")
+    except ValueError:
+        print("Incorrect input, enter valid characters or morse code")
+    except TypeError:
+        print("Incorrect input type")
+    except Exception as e:
+        print(f"An unexpected error has occured: {e}")
+
+master()
