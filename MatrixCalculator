@@ -1,0 +1,54 @@
+def matrix2x2(nums):
+    a = nums[0]
+    b = nums[1]
+    c = nums[2]
+    d = nums[3]
+    result = a * d -(b * c)
+    print(result)
+
+def matrix3x3(nums):
+    a = nums[0]
+    b = nums[1]
+    c = nums[2]
+    d = nums[3]
+    e = nums[4]
+    f = nums[5]
+    g = nums[6]
+    h = nums[7]
+    i = nums[8]
+    result = (a * e * i) +(d * h * c) +(g * b * f) -(c * e * g) -(f * h * a) -(i * b * d)
+    print(result)
+
+def master():
+    dec = input("Enter matrix you want to solve('2x2' or '3x3'): ")
+    if dec == "2x2":
+        nums = input("Enter numbers you want to have in your 2x2 matrix (ex. 1,2,3,4): ")
+        nums = nums.split(",")
+        result2x2 = []
+        for num in nums:
+            num = int(num)
+            result2x2.append(num)
+        try:
+            matrix2x2(result2x2)
+        except ValueError:
+            print("Invalid input")
+        except TypeError:
+            print("Incorrect input type")
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+    elif dec == "3x3":
+        nums = input("Enter numbers you want to have in your 3x3 matrix (ex. 1,2,3,4,5,6,7,8,9): ")
+        nums = nums.split(",")
+        result3x3 = []
+        for num in nums:
+            num = int(num)
+            result3x3.append(num)
+        try:
+            matrix3x3(result3x3)
+        except ValueError:
+            print("Invalid input")
+        except TypeError:
+            print("Incorrect input type")
+        except Exception as e:
+            print(f"Unexpected error: {e}")
+master()
