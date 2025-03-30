@@ -1,0 +1,58 @@
+def binary_to_int(arr):
+    arr = list(reversed(arr))
+    n = -1
+    result = []
+    for number in arr:
+        if number == 1:
+            n += 1
+            number *= 2
+            number **= n
+            result.append(number)
+        elif number == 0:
+            n += 1
+            result.append(number)
+    print(sum(result))
+
+def int_to_binary(num):
+
+    if num == 0:
+        print("0")
+
+    result = ""
+    while num > 0:
+        rem = num % 2
+        result = str(rem) + result
+        num = num // 2
+
+    print(f"{result}")
+
+def master():
+    decision = input("Wellcome to binary converter, if you want to convert integer to binary input 'i' or if binary to integer input 'b': ")
+    dl = len(decision)
+
+    if dl > 1:
+        print("Invalid input")
+
+    elif decision == "i":
+        num = input("Enter number that you want to convert in to binary")
+        try:
+            num = int(num)
+            if num < 0:
+                print("Number cant be smaller than 0")
+            else:
+                int_to_binary(num)
+        except:
+            print("Invalid input")
+
+    elif decision == "b":
+        nums = input("Enter binary that you want to convert in to number")
+        try:
+            if len(nums) == 0:
+                print("You will need to enter something")
+            else:
+                numList = [int(digit) for digit in nums]
+                binary_to_int(numList)
+        except:
+            print("Invalid input")
+
+master()
