@@ -1,0 +1,20 @@
+def maskify(cc):
+    covered = []
+    for c in cc[:-4]:
+        c = "#"
+        covered.append(c)
+
+    print("".join(covered) + cc[-4:])
+
+def master():
+    running = True
+    while running:
+        cc = input("Enter something that need to be maskified, input must me at least 5 characters long")
+        cc = cc.strip()
+        if len(cc) <= 4:
+            print("You will need to input something")
+        else:
+            maskify(cc)
+            running = False
+
+master()
