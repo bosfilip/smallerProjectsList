@@ -1,0 +1,32 @@
+def greatest(x, y, n):
+    running = True
+    while running:
+        n -= 1
+        if n % x == 0 and n % y == 0:
+            return n
+            running = False
+
+def smallest(x, y, n):
+    running = True
+    while running:
+        n += 1
+        if n % x == 0 and n % y == 0:
+            return n
+            running = False
+
+def master():
+    x = input("Enter the first number (we'll call it x): ")
+    y = input("Now, enter the second number (let's call this one y): ")
+    n = input("Lastly, please enter the number we'll use as a starting point (we'll call it n): ")
+    try:
+        x = int(x)
+        y = int(y)
+        n = int(n)
+
+        print(f"The greatest number divisible by both your x ({x}) and y ({y}), and is smaller than your n ({n}), is: {greatest(x, y, n)}")
+        print(f"The smallest number divisible by both your x ({x}) and y ({y}), and is greater than your n ({n}), is: {smallest(x, y, n)}")
+
+    except ValueError:
+        print("You can only input integers")
+
+master()
