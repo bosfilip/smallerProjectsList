@@ -1,0 +1,34 @@
+def narcissistic( value ):
+    value = str(value)
+    toPower = len(value)
+    single = []
+    for num in value:
+        num = int(num)
+        single.append(num)
+    power = []
+    for num in single:
+        nump = num**toPower
+        power.append(nump)
+    result = sum(power)
+    value = int(value)
+    if result == value:
+        return True
+    else:
+        return False
+
+def master():
+    value = input("Enter number you want to check if its narcissistic")
+    if len(value.strip()) == 0:
+        print("You need to enter something")
+    else:
+        try:
+            value = int(value)
+            check = narcissistic(value)
+            if check:
+                print(f"Your number '{value}' is a narcissistic number")
+            else:
+                print(f"Your number '{value}' is not a narcissistic number")
+        except:
+            print("Incorrect input")
+
+master()
