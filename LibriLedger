@@ -1,0 +1,47 @@
+def stock_list(stocklist, categories):
+    result1 = []
+    for obj in stocklist:
+        result1.append(obj.split(" "))
+    dictionary = {}
+    for category in categories:
+        dictionary[category] = 0
+    for book in result1:
+        firstW = book[0]
+        category = firstW[0]
+        quanity = book[1]
+        quanity = int(quanity)
+        if category in categories:
+            if category in dictionary:
+                dictionary[category] += quanity
+            else:
+                dictionary[category] = quanity
+    strResult = []
+    sum = 0
+    for key, value in dictionary.items():
+        sum += value
+    if sum == 0:
+        print("There is no books in the categories")
+    else:
+        for key, value in dictionary.items():
+            strResult.append(f"({key} : {value})")
+
+        print(" - ".join(strResult))
+
+# Example user input: stock_list(["ABART 20", "CDXEF 50", "BKWRK 25", "BTSQZ 89", "DRTYM 60"],["A", "B", "C", "W"])
+
+def master():
+    stockList = input("Enter book code and supply of them (ABART 20,CDXEF 50): ")
+    categories = input("Now enter list of categories (A,B,C): ")
+    stockList = stockList.split(",")
+    categories = categories.split(",")
+    if len(stockList) <= 1:
+        print("You need to enter some books")
+    elif len(categories) <= 0:
+        print("You need to enter some categories")
+    else:
+        try:
+            stock_list(stockList,categories)
+        except:
+            print("Invalid input")
+
+master()
