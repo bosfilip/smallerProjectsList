@@ -1,0 +1,32 @@
+def is_pangram(st):
+    alph = {}
+    n = 0
+    stWords = st.split(" ")
+    for word in stWords:
+        for letter in word:
+            letter = letter.upper()
+            if letter in alph:
+                alph[letter] += n
+            else:
+                n+1
+                alph[letter] = n
+    if len(alph.items()) == 26:
+        print("Your string is a pangram")
+    else:
+        print("Your string is not a pangram")
+
+
+def master():
+    st = input("Enter some sentence to check if it's a pangram(enter only alphabetic characters): ")
+    stC = st.split(" ")
+    check = []
+    for words in stC:
+        for word in words:
+            for letter in word:
+                if letter.isalpha():
+                    continue
+                else:
+                    print("You can only input alphabetical characters")
+    is_pangram(st)
+
+master()
