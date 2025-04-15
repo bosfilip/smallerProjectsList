@@ -1,0 +1,29 @@
+def solution(s):
+    letters = []
+    for letter in s:
+        letters.append(letter)
+    if len(letters) % 2 != 0:
+        letters.append("_")
+    running = True
+    n = -1
+    result = []
+    while running:
+        n += 2
+        if len(letters) > n:
+            firstL = letters[n-1]
+            secondL = letters[n]
+            both = firstL + secondL
+            result.append(both)
+        else:
+            running = False
+    print(result)
+
+def master():
+    s = input("Enter string and check what will happen")
+    if len(s.strip()) == 0:
+        print("You will need to enter anything")
+    else:
+        s = s.split(" ")
+        solution("".join(s))
+
+master()
