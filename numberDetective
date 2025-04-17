@@ -1,0 +1,36 @@
+def find_uniq(arr):
+    nums = {}
+    for num in arr:
+        if num not in nums:
+            nums[num] = 0
+        else:
+            nums[num] += 1
+
+    result = []
+    for num, value in nums.items():
+        if value == 0:
+            result.append(num)
+
+    if len(result) > 1:
+        print("You can input only two different numbers")
+    else:
+        print(f"Your uniq number is: {result}")
+
+def master():
+    arr = input("Enter some numbers where only one is different and I will try to find it(ex. 1,2,1,1,1) :")
+    arr = arr.strip()
+    if len(arr) == 0:
+        print("You will need to type something in")
+    else:
+        arr = arr.split(",")
+        arrResult = []
+        for num in arr:
+            num = int(num)
+            arrResult.append(num)
+
+        try:
+            find_uniq(arr)
+        except:
+            print("Invalid input")
+
+master()
