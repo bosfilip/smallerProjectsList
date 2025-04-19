@@ -1,0 +1,22 @@
+def get_middle(s):
+    if len(s) % 2 == 0:
+        p = len(s) // 2
+        ret = s[p-1] + s[p]
+    elif len(s) % 2 == 1:
+        p = len(s) // 2
+        ret = s[p]
+    if ret == "":
+        print("You entered to many spaces")
+    else:
+        print(ret)
+
+def master():
+    st = input("Enter some string and the program will find it's middle letter or letters: ")
+    st = st.split(" ")
+    s = []
+    for word in st:
+        for letter in word:
+            s.append(letter)
+    get_middle(s)
+
+master()
