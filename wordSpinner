@@ -1,0 +1,24 @@
+def spin_words(n):
+    n = n.split(" ")
+    result = []
+    for word in n:
+        if len(word) >= 5:
+            word = word[::-1]
+            result.append(word)
+        else:
+            result.append(word)
+
+    print(" ".join(result))
+
+def master():
+    n = input("Enter some sentence and all words that are equal or over 5 letters will be reversed: ")
+    n = n.strip()
+    if n == "":
+        print("You will need to enter something")
+    else:
+        try:
+            spin_words(n)
+        except:
+            print("Invalid input")
+
+master()
