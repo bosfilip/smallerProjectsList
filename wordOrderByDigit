@@ -1,0 +1,31 @@
+def order(sentence):
+    words = sentence.split(" ")
+
+    di = {}
+    for word in words:
+        for digit in word:
+            if digit.isdigit():
+                di[digit] = word
+                break
+
+    itemList = sorted(di.items())
+
+    correctString = []
+    for key, value in itemList:
+        correctString.append(value)
+
+    print(" ".join(correctString))
+
+def master():
+    sentence = input("Enter mixed sentence with number within each word that will indicate its correct position, numbers in words should only be 1-9 (ex. is2 Thi1s T4est 3a): ")
+    sentence = sentence.strip()
+
+    if sentence == "":
+        pritnt("You will need to enter something")
+    else:
+        try:
+            order(sentence)
+        except:
+            print("Invalid input")
+
+master()
