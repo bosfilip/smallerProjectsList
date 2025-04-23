@@ -1,0 +1,25 @@
+def duplicate_count(text):
+    text = text.split(" ")
+    di = {}
+    for word in text:
+        for digit in word:
+            digit = digit.lower()
+            if digit not in di:
+                di[digit] = 0
+            elif digit in di:
+                di[digit] += 1
+    count = 0
+    for key, value in di.items():
+        if value > 0:
+            count += 1
+
+    print(count)
+
+def master():
+    text = input("Enter text that you want to check for duplicates: ")
+    try:
+        duplicate_count(text)
+    except:
+        print("Invalid input")
+
+master()
