@@ -1,0 +1,36 @@
+def delete_nth(list, max):
+    max = max -1
+    di = {}
+    li = []
+    for num in list:
+        if num == " ":
+            li.append(num)
+            continue
+        num = num.lower()
+        num = str(num)
+        if num not in di:
+            di[num] = 0
+            li.append(num)
+        elif di[num] < max:
+            di[num] += 1
+            li.append(num)
+        else:continue
+    print("".join(li))
+
+def master():
+    list = input("Enter a string you would like to edit by deleting digits that are repeating themselves a certain number of times: ")
+    list = list.strip()
+    if list == "":
+        print("You can't leave input empty")
+    else:
+        max = int(input("Now enter the maximum number of times a digit can repeat before being deleted: "))
+        if max < 0:
+            print("The x value cant be smaller than 0")
+        else:
+            list = str(list)
+            try:
+                delete_nth(list, max)
+            except:
+                print("Invalid input")
+
+master()
