@@ -1,0 +1,73 @@
+def trailing_zeros(num, base):
+    if base == 10:
+        n = 1
+        if n == 0:
+            return 1
+        else:
+            for i in range(1,num + 1):
+                n *= i
+
+        n = str(n)
+        n_reversed = n[::-1]
+        result = 0
+        for d in n_reversed:
+            if d == "0":
+                result += 1
+            if d != "0":
+                break
+
+        return result
+
+    elif base == 2:
+        n = 1
+        if n == 0:
+            return 1
+        else:
+            for i in range(1, num + 1):
+                n *= i
+        num1 = []
+        while n > 0:
+            if n % 2 == 0:
+                n = n  // 2
+                num1.append(0)
+            elif n % 2 == 1:
+                n = n // 2
+                num1.append(1)
+
+        result = 0
+        for g in num1:
+            if g == 0:
+                result += 1
+            elif g != 0:
+                break
+
+        return result
+
+def master():
+    print("Wellcome to trailing zero program where we will count how many zeros are in your number in decimal or binary system")
+    num = input("Enter number that will be raised to the factorial(ex. 7!): ")
+    try:
+        running = True
+        while running:
+            if not num.isdigit():
+                print("You only can input numbers")
+                running = False
+            elif len(num) == 0:
+                print("You will need to type something")
+                running = False
+            elif int(num) < 0:
+                print("Number cant be smaller than 0")
+            else:
+                base = input("Please enter the base you would like to use for counting trailing zeros, decimal(type 10) or binary(type 2): ")
+                if base == "10":
+                    print(trailing_zeros(int(num),10))
+                    running = False
+                elif base == "2":
+                    print(trailing_zeros(int(num),2))
+                    running = False
+                else:
+                    print("You can only pick number 2 or 10")
+    except:
+        print("Invalid input")
+
+master()
